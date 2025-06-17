@@ -167,7 +167,7 @@ python main.py [Markdown文件]
       
       + 图片居中：
           ```html
-          <img class="float-right" src="图片地址">
+          <img class="float-center" src="图片地址">
           ```
       + 图片右对齐：
           ```html
