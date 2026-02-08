@@ -1,6 +1,10 @@
 .venv/
 
 .vscode/launch.json
+.trae/
+.vscode
+.__pycache__
+.pytest_cache/
 
 **/.mypy_cache/
 
