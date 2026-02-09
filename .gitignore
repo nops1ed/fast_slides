@@ -3,8 +3,10 @@
 .vscode/launch.json
 .trae/
 .vscode
+.cursor
 .__pycache__
 .pytest_cache/
+*.bak
 
 **/.mypy_cache/
 
