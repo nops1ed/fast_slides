@@ -1,5 +1,5 @@
 import argparse
-from src.converter import converter
+from fast_slides.converter import converter
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
