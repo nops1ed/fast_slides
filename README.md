@@ -1,27 +1,66 @@
 # fast-slides
 
+<div style="text-align: right; margin-bottom: 20px;">
+  <button id="lang-toggle" style="padding: 8px 16px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">English</button>
+</div>
+
+<script>
+// 语言切换功能
+const langToggle = document.getElementById('lang-toggle');
+let currentLang = 'zh';
+
+langToggle.addEventListener('click', function() {
+  currentLang = currentLang === 'zh' ? 'en' : 'zh';
+  langToggle.textContent = currentLang === 'zh' ? 'English' : '中文';
+  
+  // 切换所有中文和英文内容
+  const zhElements = document.querySelectorAll('.lang-zh');
+  const enElements = document.querySelectorAll('.lang-en');
+  
+  if (currentLang === 'zh') {
+    zhElements.forEach(el => el.style.display = 'block');
+    enElements.forEach(el => el.style.display = 'none');
+  } else {
+    zhElements.forEach(el => el.style.display = 'none');
+    enElements.forEach(el => el.style.display = 'block');
+  }
+});
+
+// 初始隐藏英文内容
+document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+</script>
+
 ## 📣 宣传语 / Promotional
 
+<div class="lang-zh">
 ### 简体中文
 觉得制作 PowerPoint 感到烦躁吗？想快速通过 Markdown 来制作 slides 吗？
 
 fast-slides 是一个快速、优雅的 Markdown 幻灯片生成工具。无需复杂的操作，只需编写简单的 Markdown 语法，即可生成美观、专业的幻灯片。
+</div>
 
+<div class="lang-en">
 ### English
 Tired of creating PowerPoint presentations? Want to quickly create slides using Markdown?
 
 fast-slides is a fast and elegant slide generator from Markdown. No complex operations needed - just write simple Markdown syntax to generate beautiful, professional slides.
+</div>
 
 ## 📖 项目介绍 / Project Introduction
 
+<div class="lang-zh">
 ### 简体中文
 fast-slides 是一个从 Markdown 文件生成幻灯片的工具，它提供了简洁的语法和优雅的主题，让您可以快速创建专业的幻灯片。
+</div>
 
+<div class="lang-en">
 ### English
 fast-slides is a tool for generating slides from Markdown files, providing simple syntax and elegant themes to help you quickly create professional slides.
+</div>
 
 ## ✨ 功能特性 / Features
 
+<div class="lang-zh">
 ### 简体中文
 - **简洁的 Markdown 语法**：易于学习的扩展语法，用于创建幻灯片
 - **实时预览**：监视文件变化并自动重新编译
@@ -29,7 +68,9 @@ fast-slides is a tool for generating slides from Markdown files, providing simpl
 - **方便的安装**：支持从源代码安装和命令行使用
 - **丰富的功能**：支持片段、动画、图片、代码高亮等
 - **打包功能**：轻松创建幻灯片的 ZIP 文件，方便传输和分享
+</div>
 
+<div class="lang-en">
 ### English
 - **Simple Markdown syntax**：Easy-to-learn extension syntax for creating slides
 - **Real-time preview**：Watch for file changes and auto-recompile
@@ -37,9 +78,11 @@ fast-slides is a tool for generating slides from Markdown files, providing simpl
 - **Easy installation**：Support for installation from source and command-line usage
 - **Feature-rich**：Support for fragments, animations, images, code highlighting, and more
 - **Packaging functionality**：Easily create ZIP files of slides for convenient transfer and sharing
+</div>
 
 ## 🚀 安装方法 / Installation
 
+<div class="lang-zh">
 ### 从源代码安装 / From Source
 
 ```bash
@@ -48,9 +91,22 @@ cd fast-slides
 # 安装依赖
 pip3 install requests jinja2 markdown pyquery pygments lxml pyyaml click watchdog
 ```
+</div>
+
+<div class="lang-en">
+### From Source
+
+```bash
+git clone https://github.com/zweix123/fast-slides.git
+cd fast-slides
+# Install dependencies
+pip3 install requests jinja2 markdown pyquery pygments lxml pyyaml click watchdog
+```
+</div>
 
 ## 📦 使用方法 / Usage
 
+<div class="lang-zh">
 ### 命令行接口 / Command-line Interface
 
 ```bash
@@ -101,9 +157,64 @@ start.bat your_file.md
 :: 打包幻灯片
 pack.bat
 ```
+</div>
+
+<div class="lang-en">
+### Command-line Interface
+
+```bash
+# Build slides
+python3 run.py build slide.md
+
+# Initialize new project
+python3 run.py init
+
+# Start with real-time preview
+python3 run.py start slide.md --watch --serve
+```
+
+### Launch Scripts
+
+#### macOS / Linux
+
+```bash
+# Build default slides (sample_slide.md)
+./start.sh
+
+# Build specific file
+./start.sh your_file.md
+```
+
+#### Windows
+
+```batch
+:: Build default slides (sample_slide.md)
+start.bat
+
+:: Build specific file
+start.bat your_file.md
+```
+
+### Packaging Functionality
+
+#### macOS / Linux
+
+```bash
+# Package slides
+./pack.sh
+```
+
+#### Windows
+
+```batch
+:: Package slides
+pack.bat
+```
+</div>
 
 ## 📝 Markdown 语法 / Markdown Syntax
 
+<div class="lang-zh">
 ### 简体中文
 
 #### 基本结构
@@ -159,7 +270,9 @@ pack.bat
   ]
 }
 ```
+</div>
 
+<div class="lang-en">
 ### English
 
 #### Basic Structure
@@ -215,9 +328,11 @@ Content of vertical slide
   ]
 }
 ```
+</div>
 
 ## ⚠️ 注意事项 / Notes
 
+<div class="lang-zh">
 ### 简体中文
 1. **Python 版本**：需要 Python 3.9 或更高版本
 2. **依赖安装**：请确保安装了所有必要的依赖包
@@ -227,7 +342,9 @@ Content of vertical slide
 6. **跨机器使用**：打包后的幻灯片可以在没有安装 fast-slides 的机器上使用
 7. **浏览器兼容性**：建议使用现代浏览器（如 Chrome、Firefox、Safari）查看幻灯片
 8. **网络连接**：首次构建时需要网络连接来下载必要的资源
+</div>
 
+<div class="lang-en">
 ### English
 1. **Python version**：Requires Python 3.9 or higher
 2. **Dependency installation**：Please ensure all necessary dependencies are installed
@@ -237,9 +354,11 @@ Content of vertical slide
 6. **Cross-machine usage**：Packaged slides can be used on machines without fast-slides installed
 7. **Browser compatibility**：Modern browsers (Chrome, Firefox, Safari) are recommended for viewing slides
 8. **Network connection**：Initial build requires network connection to download necessary resources
+</div>
 
 ## 🔄 跨机器使用 / Cross-machine Usage
 
+<div class="lang-zh">
 ### 简体中文
 要在另一台机器上使用幻灯片，无需安装任何依赖：
 
@@ -254,7 +373,9 @@ Content of vertical slide
 4. **打开幻灯片**：在浏览器中打开 `index.html` 文件查看幻灯片
 
 幻灯片是完全自包含的，不需要任何互联网连接或额外的软件。
+</div>
 
+<div class="lang-en">
 ### English
 To use the slides on another machine without installing any dependencies：
 
@@ -269,9 +390,11 @@ To use the slides on another machine without installing any dependencies：
 4. **Open the slides**：Open the `index.html` file in a browser to view the slides
 
 The slides are fully self-contained and do not require any internet connection or additional software.
+</div>
 
 ## 📁 项目结构 / Project Structure
 
+<div class="lang-zh">
 ### 简体中文
 ```
 fast_slides/
@@ -288,7 +411,9 @@ pack.sh                # macOS/Linux 打包脚本
 pack.bat               # Windows 打包脚本
 sample_slide.md        # 示例幻灯片文件
 ```
+</div>
 
+<div class="lang-en">
 ### English
 ```
 fast_slides/
@@ -305,17 +430,21 @@ pack.sh                # macOS/Linux packaging script
 pack.bat               # Windows packaging script
 sample_slide.md        # Sample slide file
 ```
+</div>
 
 ## 🎉 致谢 / Acknowledgements
 
+<div class="lang-zh">
 ### 简体中文
 - **灵感来源**：南京大学 [蒋炎岩教授](https://ics.nju.edu.cn/~jyy/)
 - **基于**：[jyyslide-md](https://github.com/zweix123/jyyslide-md)
+</div>
 
+<div class="lang-en">
 ### English
 - **Inspired by**：[Professor Jiang Yanyan](https://ics.nju.edu.cn/~jyy/) from Nanjing University
 - **Based on**：[jyyslide-md](https://github.com/zweix123/jyyslide-md)
-
+</div>
 
 ## 📄 许可证 / License
 
